@@ -215,7 +215,7 @@ class Pow(Function):
         c = self.c
 
         gx = c * x ** (c - 1) * gy
-        return gy
+        return gx
     
 def pow(x, c):
     return Pow(c)(x)
