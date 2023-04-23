@@ -6,7 +6,6 @@ class Config:
     enable_backprop = True
     
 class Variable:
-    # ndarray 인스턴스가 좌항이고 Variable 인스턴스가 우항인 경우 연산 우선 순위 처리
     __array_priority__ = 200
     def __init__(self,data, name=None):
         if data is not None:
@@ -156,7 +155,7 @@ class Div(Function):
     
 class Pow(Function):
     def __init__(self, c):
-        self.c = c # 클래스를 초기화 할 때 지수c를 제공.
+        self.c = c # 클래스를 초기화 할 때 지수 c를 제공.
 
     def forward(self, x):
         y = x ** self.c
@@ -167,7 +166,7 @@ class Pow(Function):
         c = self.c
 
         gx = c * x ** (c - 1) * gy
-        return gy
+        return gx
 
 
 @contextlib.contextmanager

@@ -1,5 +1,5 @@
 # 32단계 까지는 True, 33단계부터는 False로
-is_simple_core = True
+is_simple_core = False
 
 if is_simple_core:
     from dezero.core_simple import Variable 

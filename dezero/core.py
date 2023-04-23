@@ -140,10 +140,10 @@ class Function:
         
         return outputs if len(outputs) > 1 else outputs[0]
     
-    def forward(self, x):
+    def forward(self, xs):
         raise NotImplementedError()
     
-    def backward(self, x):
+    def backward(self, gys):
         raise NotImplementedError()
 
 #############
@@ -218,7 +218,7 @@ def div(x0, x1):
 
 def rdiv(x0, x1):
     x1 = as_array(x1)
-    return Div(x1, x0) # 순서 주의
+    return Div()(x1, x0) # 순서 주의
 
 class Pow(Function):
     def __init__(self, c):
@@ -229,7 +229,7 @@ class Pow(Function):
         return y
     
     def backward(self, gy):
-        x = self.inputs
+        x, = self.inputs
         c = self.c
         gx = c * x ** (c - 1) * gy
         return gx
