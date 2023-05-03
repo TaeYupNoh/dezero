@@ -48,6 +48,36 @@ def tanh(x):
     return Tanh()(x)
 
 
+class Exp(Function):
+    def forward(self, x):
+        y = np.exp(x)
+        return y
+
+    def backward(self, gy):
+        y = self.outputs[0]()  # weakref
+        gx = gy * y
+        return gx
+
+
+def exp(x):
+    return Exp()(x)
+
+
+class Log(Function):
+    def forward(self, x):
+        y = np.log(x)
+        return y
+
+    def backward(self, gy):
+        x, = self.inputs
+        gx = gy / x
+        return gx
+
+
+def log(x):
+    return Log()(x)
+
+
 class Reshape(Function):
     def __init__(self, shape):
         self.shape = shape
