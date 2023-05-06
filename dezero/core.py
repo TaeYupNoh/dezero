@@ -294,6 +294,10 @@ def pow(x, c):
     return Pow(c)(x)
 
 
+#############
+# Parameter #
+#############
+
 class Parameter(Variable):
     pass
 

@@ -2,7 +2,6 @@ import numpy as np
 from dezero.core import Function, as_variable
 from dezero import utils
 
-
 class Sin(Function):
     def forward(self, x):
         y = np.sin(x)
@@ -263,3 +262,5 @@ class Sigmoid(Function):
 
 def sigmoid(x):
     return Sigmoid()(x)
+
+
