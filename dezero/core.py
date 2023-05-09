@@ -301,6 +301,7 @@ def pow(x, c):
 class Parameter(Variable):
     pass
 
+
 def setup_variable():
     Variable.__add__ = add
     Variable.__radd__ = add
@@ -312,3 +313,4 @@ def setup_variable():
     Variable.__truediv__ = div
     Variable.__rtruediv__ = rdiv
     Variable.__pow__ = pow
+    Variable.__getitem__ = dezero.functions.get_item
